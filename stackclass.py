@@ -7,11 +7,20 @@ class StackClass:
 
     def push(self, item):
         self.items.append(item)
-        return "Added item to the stack."
+        msg = "Added " + item + " to the stack."
+        print(msg)
+        return None
+        # return "Added item to the stack."
 
     def pop(self):
         if self.items:
-            return self.items.pop()
+            topitem = self.peek()
+            msg = topitem + " is on top of the stack."
+            print(msg)
+            self.items.pop()
+            msg = "Removed " + topitem + " from the stack."
+            print(msg)
+            return None
 
         return self.NOELEMENTS
 
@@ -26,4 +35,9 @@ class StackClass:
 
     def is_empty(self):
         return self.items==[]
+
+    # Test Module
+    test = StackClass()
+    test.push("Apple")
+    test.push("Orange")
     
